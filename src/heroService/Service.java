@@ -1,7 +1,7 @@
-package heroeService;
+package heroService;
 
 import heroes.*;
-import weapons.Weapon;
+
 
 import java.util.Scanner;
 
@@ -107,16 +107,7 @@ public class Service {
         return true;
     }
 
-    public void heroWeaponInfo(Weapon weapon)
-    {
-        System.out.println("--here is your hero`s weapon information--");
-        System.out.println("Your Weapon is "+ weapon.getName());
-        System.out.println("Your Weapon damage is "+ weapon.getDamage());
-        System.out.println("Your Weapon range is "+ weapon.getRange());
-        System.out.println("Your Weapon speed is "+ weapon.getSpeed());
 
-
-    }
 
     public void heroAbilities(Hero hr)
     {
@@ -135,8 +126,5 @@ public class Service {
         hr.weaponAttack(hr.getWeapon());
     }
 
-    public void start()
-    {
-        System.out.println("Welcome to hero creation simulation ");
-    }
+
 }

@@ -1,0 +1,2 @@
+1,Ashtarak,m,kaoik,150,Knight
+2,7,m,ij,158,Bard
