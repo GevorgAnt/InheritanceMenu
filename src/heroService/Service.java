@@ -1,11 +1,15 @@
 package heroService;
 
+import fileService.SaveHeroesService;
 import heroes.*;
 
 
+import java.util.Comparator;
 import java.util.Scanner;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
-public class Service {
+public class Service  {
     boolean confirm = false;
     String agree = "";
     int select;
@@ -108,8 +112,28 @@ public class Service {
     }
 
 
+    public TreeSet<Hero> sortedHeroes()
+    {
+        SaveHeroesService service=new SaveHeroesService();
+        TreeSet<Hero> sort = new TreeSet<>();
+        int id=1;
+        while(true)
+        {
+            Hero hero=service.load(id);
+            if(hero==null)
+                break;
 
-    public void heroAbilities(Hero hr)
+            sort.add(hero);
+            id++;
+        }
+        return sort;
+    }
+
+
+
+
+
+   /* public void heroAbilities(Hero hr)
     {
         System.out.println();
         System.out.println("----------------");
@@ -119,12 +143,9 @@ public class Service {
         System.out.println("Hero special skill");
         hr.specialSkill();
         System.out.println("-------------");
-        System.out.println("Hero secondary skill");
-        hr.secondAttack();
-        System.out.println("-------------");
         System.out.println("Hero weapon attack");
         hr.weaponAttack(hr.getWeapon());
-    }
+    }*/
 
 
 }

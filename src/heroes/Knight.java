@@ -2,51 +2,70 @@ package heroes;
 
 
 
+import enemy.Enemy;
 import weapons.SwordAndShield;
-import weapons.Weapon;
+
+import java.util.Random;
 
 public class Knight extends Hero {
 
+Random rnd=new Random();
     public Knight(String name, char sex, String race, int size) {
         super();
 
         description = "Knight- Defender of the weaks, specialize in melee combat, and use cover/guard " +
                 "to defend those who are in danger.";
-        health = 300;
-        defence = 200;
+       start();
         weapon = new SwordAndShield();
         this.name = name;
         this.sex = sex;
         this.race = race;
         this.height = size;
+
+    }
+
+
+
+    @Override
+    public void specialSkill(Enemy enemy) {
+        enemy.setDamage(enemy.getDamage()-3);
+    }
+
+
+
+
+    @Override
+    public void weaponAttack(Enemy enemy) {
+        specialSkill(enemy);
+        System.out.println("You hit the enemy");
+        int damage=(int) ((baseDamage+weapon.getDamage()-enemy.getDefence()*0.15));
+        System.out.println("Enemy lost "+damage+" health");
+        enemy.setHealth(enemy.getHealth()-damage);
     }
 
     @Override
-    public void specialSkill() {
-        System.out.println("Give some protection points to allies");
+    public boolean evade() {
+        int percent = rnd.nextInt(100);
+        return percent > 70;
     }
 
     @Override
-    public void abilityAttack() {
-        System.out.println("Strong slash with sword");
+    public void start() {
+        health = 300;
+        defence = 200;
+        abilityCastCount=3;
     }
 
     @Override
-    public void secondAttack() {
-        System.out.println("stunning enemies with shield");
-    }
+    public void levelUp() {
+        start();
+        System.out.println("Congratulations you raised yur level");
+        System.out.println("Your got stronger and batter");
+        level++;
+        experience -=100;
+        health+=level*4;
+        defence+=level*4;
+        baseDamage+=level*2;
 
-    public void weaponAttack(Weapon weapon) {
-        System.out.println("attack with sword and shield");
-    }
-
-    @Override
-    public void defence() {
-        System.out.println("block attacks with shield");
-    }
-
-    @Override
-    public void jump() {
-        System.out.println("To heavy to jump");
     }
 }

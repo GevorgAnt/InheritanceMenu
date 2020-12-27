@@ -1,54 +1,73 @@
 package heroes;
 
 
+import enemy.Enemy;
 import weapons.Bow;
-import weapons.Weapon;
 
 
-public class Archer extends Hero  {
+import java.util.Random;
+
+
+public class Archer extends Hero {
+    Random rnd = new Random();
 
     public Archer(String name, char sex, String race, int size) {
         super();
 
         description = "Archer- a range fighter who uses bows  as a primary weapon " +
                 "and can pinpoint enemies weakness (Analyze).";
-        health = 170;
-        defence = 100;
+
+        start();
         weapon = new Bow();
         this.name = name;
         this.sex = sex;
         this.race = race;
         this.height = size;
+
     }
 
 
     @Override
-    public void specialSkill() {
-        System.out.println("Have an eagle vision");
+    public void specialSkill(Enemy enemy) {
+        if(enemy.getDefence()<=0)
+        enemy.setDefence(enemy.getDefence()-15);
+    }
+
+
+    @Override
+    public void weaponAttack(Enemy enemy) {
+
+        specialSkill(enemy);
+        System.out.println("You hit the enemy");
+        int damage=(int) ((baseDamage+weapon.getDamage()-enemy.getDefence()*0.15));
+        System.out.println("Enemy lost "+damage+" health");
+        enemy.setHealth(enemy.getHealth()-damage);
+
     }
 
     @Override
-    public void abilityAttack() {
-        System.out.println("shooting whit magic arrow  from big distance ");
+    public boolean evade() {
+        int percent = rnd.nextInt(101);
+        return percent > 30;
     }
 
     @Override
-    public void secondAttack() {
-        System.out.println("Arrow rain ");
+    public void start() {
+        health = 170;
+        defence = 100;
+        abilityCastCount = 3;
     }
 
     @Override
-    public void weaponAttack(Weapon weapon) {
-        System.out.println("Fast attacks with bow");
-    }
+    public void levelUp() {
+        start();
+        System.out.println("Congratulations you raised yur level");
+        System.out.println("Your got stronger and batter");
+        level++;
 
-    @Override
-    public void defence() {
-        System.out.println("dodging enemy attacks");
-    }
-
-    @Override
-    public void jump() {
-        System.out.println("Can jump high distance ");
+        experience -= 100;
+        health += level * 5;
+        defence += defence * 3;
+        baseDamage += level * 3;
     }
 }

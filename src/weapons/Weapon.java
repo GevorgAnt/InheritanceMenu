@@ -4,33 +4,25 @@ public abstract class Weapon {
 
      String name;
      int damage;
-     int range;
-     int speed;
 
 
-    public  String getName() {
+
+
+    public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
-
-    public  int getDamage() {
+    public int getDamage() {
         return damage;
     }
 
-
-
-    public  int getRange() {
-        return range;
+    public void setDamage(int damage) {
+        this.damage = damage;
     }
-
-
-
-    public  int getSpeed() {
-        return speed;
-    }
-
-
 
 
 }

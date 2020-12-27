@@ -1,52 +1,74 @@
 package heroes;
 
 
+import enemy.Enemy;
 import weapons.Staff;
-import weapons.Weapon;
+
+import java.util.Random;
 
 
 public class Wizard extends Hero  {
+    Random rnd=new Random();
     public Wizard(String name, char sex, String race, int size) {
         super();
 
         description = "a strong spell caster specialize in long range magic attacks.";
-        health = 100;
-        defence = 70;
+        start();
         weapon = new Staff();
         this.name = name;
         this.sex = sex;
         this.race = race;
         this.height = size;
-    }
-
-    @Override
-    public void specialSkill() {
-        System.out.println("Strong magic attacks");
-    }
-
-    @Override
-    public void abilityAttack() {
-        System.out.println("Throws fireball to enemy");
-    }
-
-    @Override
-    public void secondAttack() {
-        System.out.println("Calls strong lightning storm to kill his enemies ");
-    }
-
-    @Override
-    public void weaponAttack(Weapon weapon) {
-        System.out.println("Shooting enemies with secret magic power");
 
     }
 
     @Override
-    public void defence() {
-        System.out.println("Magical barrier ");
+    public void specialSkill(Enemy enemy) {
+
+       enemy.setDamage(enemy.getDamage()-3);
+       enemy.setDefence(enemy.getDefence()-3);
+    }
+
+
+
+
+
+    @Override
+    public void weaponAttack(Enemy enemy) {
+        specialSkill(enemy);
+        System.out.println("You hit the enemy");
+        int damage=(int) ((baseDamage+weapon.getDamage()-enemy.getDefence()*0.15));
+        System.out.println("Enemy lost "+damage+" health");
+        enemy.setHealth(enemy.getHealth()-damage);
+
     }
 
     @Override
-    public void jump() {
-        System.out.println("Can teleport for short distance");
+    public boolean evade() {
+        int percent = rnd.nextInt(100);
+        return percent > 55;
     }
+
+    @Override
+    public void start() {
+        health = 100;
+        defence = 70;
+        abilityCastCount=10;
+    }
+
+    @Override
+    public void levelUp() {
+        start();
+        System.out.println("Congratulations you raised yur level");
+        System.out.println("Your got stronger and batter");
+        level++;
+
+        experience -=100;
+        health+=level*3;
+        defence+=level*2;
+        baseDamage+=level*5;
+
+    }
+
+
 }

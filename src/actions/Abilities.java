@@ -1,16 +1,11 @@
 package actions;
 
-import weapons.Weapon;
-
-public interface Abilities {
-
-    void weaponAttack(Weapon weapon);
 
 
+public interface Abilities<T> {
 
-    void specialSkill();
+    void weaponAttack(T obj);
+    void abilityAttack(T obj);
 
-    void abilityAttack();
 
-    void secondAttack();
 }

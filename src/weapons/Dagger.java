@@ -5,8 +5,7 @@ public class Dagger  extends  Weapon{
     {
         super();
         damage=60;
-        range=15;
-        speed=90;
+
         name="Dagger";
     }
 }
