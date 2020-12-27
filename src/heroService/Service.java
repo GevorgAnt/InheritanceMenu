@@ -4,10 +4,7 @@ import fileService.SaveHeroesService;
 import heroes.*;
 
 
-import java.util.Comparator;
-import java.util.Scanner;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Service  {
     boolean confirm = false;
@@ -112,10 +109,11 @@ public class Service  {
     }
 
 
-    public TreeSet<Hero> sortedHeroes()
+    public ArrayList<Hero> sortedHeroes()
     {
         SaveHeroesService service=new SaveHeroesService();
-        TreeSet<Hero> sort = new TreeSet<>();
+        ArrayList<Hero> list=new ArrayList();
+       // TreeSet<Hero> sort = new TreeSet<>();
         int id=1;
         while(true)
         {
@@ -123,10 +121,10 @@ public class Service  {
             if(hero==null)
                 break;
 
-            sort.add(hero);
+            list.add(hero);
             id++;
         }
-        return sort;
+        return list;
     }
 
 

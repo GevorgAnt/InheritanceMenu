@@ -1,2 +1,1 @@
-1,test1,m,ch,150,Archer
-2,test2,m,khk,200,Wizard
+1,Wiz,m,dawdd,150,Wizard

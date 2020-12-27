@@ -23,7 +23,7 @@ public class MainMenu {
         int select;
         System.out.println("i am greeting you to my rpg game simulator");
         System.out.println("Here you can create new hero and crash some enemies");
-        System.out.println("type 1 to start new game, 2 to load saves,3 to show your heroes sorted by strength");
+        System.out.println("type 1 to start new game, 2 to load saves,3 to show your heroes sorted by Level");
          select = Integer.parseInt(scanner.next());
         switch (select)
         {
@@ -59,8 +59,8 @@ public class MainMenu {
             case 3:{
                 //Three map to sort Elements
                 Service heroService = new Service();
-                TreeSet<Hero> heroes= heroService.sortedHeroes();
-
+                ArrayList<Hero> heroes= heroService.sortedHeroes();
+                heroes.sort(Hero::compareTo);
                 for (Hero hero:heroes) {
                     System.out.println(hero.print());
                 }

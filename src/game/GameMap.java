@@ -9,6 +9,7 @@ import java.util.Random;
 
 public class GameMap {
   final private Enemy[][] MAP =new Enemy[3][3];
+  final private String[] levelNames={"Aloras Valley","Fildes of death","Nemescives Mountains","Lernaean swamps","Fire-Keen Mountains","Underworld","Evil lands"};
     private int count=0;
 
     //initialise map when it created
@@ -86,11 +87,16 @@ public class GameMap {
     {
         int maxTurns = 8;
         if(count== maxTurns) {
-            System.out.println("Congratulations you passed level "+level);
-            level++;
-            System.out.println("Welcome to level "+ level);
-            System.out.println("This level filled with more dangerous creatures");
-            mapInitialise();
+            if(level==7)
+                System.out.println("Congratulations you won the game");
+            else {
+                System.out.println("Congratulations you passed  " + levelNames[level - 1]);
+                level++;
+                System.out.println("you reached" + levelNames[level - 1]);
+                System.out.println("Welcome to level " + level);
+                System.out.println("This level filled with more dangerous creatures");
+                mapInitialise();
+            }
             return  true;
         }
         return false;

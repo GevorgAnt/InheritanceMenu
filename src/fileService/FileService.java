@@ -114,23 +114,23 @@ public class FileService {
     public Hero write() {
        //Hero service
         Service sr = new Service();
-        Hero hero1 ;
+        Hero hero1 = null;
         //System.out.println("hasav");
         //Create new Hero
         hero1 = sr.CreateHero();
-        StringBuilder builder=new StringBuilder(",");
+        StringBuilder builder=new StringBuilder();
         String type = hero1.getClass().getSimpleName();
         String params;
         String info;
             id++;
         idHero.put(id,hero1);
         //Append all strings and pass it to fileWriter
-        info=new StringBuilder(",").append(id).append(hero1.getName()).append(hero1.getSex()).append( hero1.getRace()).append(hero1.getHeight()).append(type)+ "\n";
+        info=new StringBuilder().append(id).append("," + hero1.getName()).append("," + hero1.getSex()).append("," + hero1.getRace()).append("," + hero1.getHeight()).append("," + type)+ "\n";
             //info = id + "," + hero1.getName() + "," + hero1.getSex() + "," + hero1.getRace() + "," + hero1.getHeight() + "," + type+","+hero1.getExperience()+","+hero1.getHealth()+","+hero1.getCoins()+","+hero1.getLevel()+"\n";
 
         if(file.length()!=0)
             builder.append(System.getProperty("line.separator"));
-        params= builder.append(id).append(hero1.getPlayerPositionX()).append(hero1.getPlayerPositionY()).append(hero1.getCoins()).append(hero1.getLevel()).append( hero1.getExperience()).append(hero1.getAbilityCastCount()).append(hero1.getHealth()).append( hero1.getBaseDamage()).append( hero1.getDefence()).toString();
+        params= builder.append(id).append("," + hero1.getPlayerPositionX()).append("," + hero1.getPlayerPositionY()).append("," + hero1.getCoins()).append("," + hero1.getLevel()).append("," + hero1.getExperience()).append("," + hero1.getAbilityCastCount()).append("," + hero1.getHealth()).append("," + hero1.getBaseDamage()).append("," + hero1.getDefence()).toString();
 
 
         try {
