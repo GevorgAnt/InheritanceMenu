@@ -59,8 +59,8 @@ public class Wizard extends Hero  {
     @Override
     public void levelUp() {
         start();
-        System.out.println("Congratulations you raised yur level");
-        System.out.println("Your got stronger and batter");
+        System.out.println("Congratulations you raised your level");
+        System.out.println("you got stronger and batter");
         level++;
 
         experience -=100;

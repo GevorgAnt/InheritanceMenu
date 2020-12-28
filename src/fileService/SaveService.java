@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.*;
 
-public class SaveHeroesService {
+public class SaveService {
     final String PATH = "HeroesParams.txt";
     //int id=0;
    // FileService service = new FileService();
@@ -29,7 +29,7 @@ public class SaveHeroesService {
         for (Map.Entry<Integer, Hero> me : set) {
             Hero hr = me.getValue();
 
-             info = builder.append(hr.getId()).append("," + hr.getPlayerPositionX()).append("," + hr.getPlayerPositionY()).append("," + hr.getCoins()).append("," + hr.getLevel()).append("," + hr.getExperience()).append("," + hr.getAbilityCastCount()).append("," + hr.getHealth()).append("," + hr.getBaseDamage()).append("," + hr.getDefence()).toString();
+             info = builder.append(hr.getId()).append(",").append(hr.getPlayerPositionX()).append(",").append(hr.getPlayerPositionY()).append(",").append(hr.getCoins()).append(",").append(hr.getLevel()).append(",").append(hr.getExperience()).append(",").append(hr.getAbilityCastCount()).append(",").append(hr.getHealth()).append(",").append(hr.getBaseDamage()).append(",").append(hr.getDefence()).toString();
             builder.append(System.getProperty("line.separator"));
         }
         try {

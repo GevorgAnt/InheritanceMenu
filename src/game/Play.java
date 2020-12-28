@@ -2,7 +2,7 @@ package game;
 
 import enemy.Enemy;
 import fileService.FileService;
-import fileService.SaveHeroesService;
+import fileService.SaveService;
 import heroes.Hero;
 import weaponService.WeaponService;
 
@@ -16,7 +16,7 @@ public class Play {
     Hero player;
 
     Scanner inp = new Scanner(System.in);
-    SaveHeroesService service=new SaveHeroesService();
+    SaveService service=new SaveService();
 
     //get hero
     public Play(Hero player) {

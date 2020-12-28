@@ -92,8 +92,8 @@ public class GameMap {
             else {
                 System.out.println("Congratulations you passed  " + levelNames[level - 1]);
                 level++;
-                System.out.println("you reached" + levelNames[level - 1]);
-                System.out.println("Welcome to level " + level);
+                System.out.println("you reached " + levelNames[level - 1]);
+               // System.out.println("Welcome to level " + level);
                 System.out.println("This level filled with more dangerous creatures");
                 mapInitialise();
             }

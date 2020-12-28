@@ -1,6 +1,6 @@
 package heroService;
 
-import fileService.SaveHeroesService;
+import fileService.SaveService;
 import heroes.*;
 
 
@@ -111,7 +111,7 @@ public class Service  {
 
     public ArrayList<Hero> sortedHeroes()
     {
-        SaveHeroesService service=new SaveHeroesService();
+        SaveService service=new SaveService();
         ArrayList<Hero> list=new ArrayList();
        // TreeSet<Hero> sort = new TreeSet<>();
         int id=1;

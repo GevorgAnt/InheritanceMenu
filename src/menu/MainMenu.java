@@ -1,8 +1,7 @@
 package menu;
 
-import enemy.Enemy;
 import fileService.FileService;
-import fileService.SaveHeroesService;
+import fileService.SaveService;
 import game.Play;
 import heroService.Service;
 import heroes.Hero;
@@ -15,7 +14,7 @@ public class MainMenu {
     //File Read Write method for Heroes
     FileService service=new FileService();
     //File load save methods for Heroes
-    SaveHeroesService heroesService=new SaveHeroesService();
+    SaveService heroesService=new SaveService();
     public  void start()
     {
 

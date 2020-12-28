@@ -64,8 +64,8 @@ public class Thief extends Hero  {
     @Override
     public void levelUp() {
 
-        System.out.println("Congratulations you raised yur level");
-        System.out.println("Your got stronger and batter");
+        System.out.println("Congratulations you raised your level");
+        System.out.println("you got stronger and batter");
         level++;
         start();
         experience -=100;
