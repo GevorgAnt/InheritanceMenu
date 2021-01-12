@@ -72,7 +72,14 @@ public class Play {
         System.out.println("Want to try again or exit??");
         System.out.println("1 to try again from checkpoint  2 to restart the game");
         inp.nextLine();
-        int select=inp.nextInt();
+        int select;
+        try {
+            select= Integer.parseInt(new Scanner(System.in).next());
+        }
+        catch (NumberFormatException e)
+        {
+            select=1;
+        }
         if(select==1)
         {
             //start new game with loaded hero
