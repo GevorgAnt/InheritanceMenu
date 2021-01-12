@@ -23,7 +23,13 @@ public class MainMenu {
         System.out.println("i am greeting you to my rpg game simulator");
         System.out.println("Here you can create new hero and crash some enemies");
         System.out.println("type 1 to start new game, 2 to load saves,3 to show your heroes sorted by Level");
-         select = Integer.parseInt(scanner.next());
+        try {
+            select = Integer.parseInt(scanner.next());
+        }
+        catch (NumberFormatException e)
+        {
+            select=1;
+        }
         switch (select)
         {
             case 1:{

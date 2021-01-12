@@ -73,7 +73,14 @@ public class User {
     public void loginOrRegistration() throws IOException {
         LoginService service = new LoginService();
         System.out.println("Login(1) or register(2) new account (2 by default)");
-        int choose = Integer.parseInt(scanner.next());
+        int choose ;
+        try {
+            choose= Integer.parseInt(scanner.next());
+        }
+        catch (NumberFormatException e)
+        {
+            choose=2;
+        }
         scanner.nextLine();
 
         switch (choose) {
@@ -91,6 +98,7 @@ public class User {
                     menu.start();
                 }
                 break;
+
             }
             default: {
                 userRegistration();

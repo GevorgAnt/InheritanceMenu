@@ -98,9 +98,17 @@ public class Play {
         System.out.println("-------");
         while (!enemy.died() && !hero.gameOver()) {
 
-            System.out.println("type 1 to attack 2 evade from enemy attack and 3 to use your hero ability you have " + hero.getAbilityCastCount() + " mana");
+            System.out.println("type 1 to attack (by default) 2 evade from enemy attack and 3 to use your hero ability you have " + hero.getAbilityCastCount() + " mana");
             System.out.println("your health " + hero.getHealth());
-            int select = Integer.parseInt(new Scanner(System.in).next());
+            int select;
+            try {
+                select= Integer.parseInt(new Scanner(System.in).next());
+            }
+            catch (NumberFormatException e)
+            {
+                select=1;
+            }
+
             switch (select) {
                 case 1: {
                     attackEnemy(enemy, hero);
@@ -134,7 +142,15 @@ public class Play {
         while (!pass) {
 
             System.out.println("Choose direction to move (1-East(>),2-West(<),3-South(v),4-North(^)(Default))");
-            int select = Integer.parseInt(inp.next());
+            int select;
+            try {
+                select = Integer.parseInt(inp.next());
+            }
+            catch (NumberFormatException e)
+            {
+                select=4;
+            }
+
             switch (select) {
                 case 1: {
                     if (hr.getPlayerPositionX() <2) {

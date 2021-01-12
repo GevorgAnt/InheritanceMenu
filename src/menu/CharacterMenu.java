@@ -18,7 +18,15 @@ public class CharacterMenu {
         Hero hero = null;
 
         System.out.println("Press 1 to crete new Hero or 2 to look heroes you created (2 by default)");
-        int choose = Integer.parseInt(in.next());
+        int choose;
+        try {
+            choose= Integer.parseInt(in.next());
+        }
+        catch (NumberFormatException e)
+        {
+            choose=2;
+        }
+
         if (choose == 1) {
             //Create new hero and write it to file
             hero = file.write();
